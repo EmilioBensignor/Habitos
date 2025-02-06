@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxt/scripts',
     '@nuxt/fonts',
+    '@nuxtjs/supabase',
   ],
   fonts: {
     defaults: {
