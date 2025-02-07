@@ -15,6 +15,16 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/supabase',
   ],
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/callback',
+      exclude: [
+        '/login',
+        '/register',
+      ]
+    }
+  },
   fonts: {
     defaults: {
       weights: [400, 500, 700, 900],
