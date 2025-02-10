@@ -27,7 +27,7 @@
                 <button type="submit" :disabled="!email || !password">
                     Registrarse
                 </button>
-                <p>O ir a <NuxtLink to="/login">login</NuxtLink></p>
+                <NuxtLink to="/login">Iniciar sesión</NuxtLink>
 
                 <p v-if="errorMsg" class="error-message">{{ errorMsg }}</p>
                 <p v-if="successMsg" style="color: green; margin-top: 0.5rem;">{{ successMsg }}</p>

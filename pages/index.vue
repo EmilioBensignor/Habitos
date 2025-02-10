@@ -9,7 +9,7 @@
             <p>Ejercicios de kinesio</p>
             <p>Salir afuera</p>
             <p>Producto del pelo</p>
-            <button @click="signOut">Cerrar Sesión</button>
+            <button @click="signOut">Cerrar sesión</button>
         </section>
     </main>
 </template>
