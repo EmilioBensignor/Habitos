@@ -9,6 +9,12 @@
             <p>Ejercicios de kinesio</p>
             <p>Salir afuera</p>
             <p>Producto del pelo</p>
+            <h2>Descripcion:</h2>
+            <ul>
+                <li>Usuario crea habito</li>
+                <li>Usuario pone como realizado el habito</li>
+                <li>Racha por dias completados</li>
+            </ul>
             <button @click="signOut">Cerrar sesión</button>
         </section>
     </main>
