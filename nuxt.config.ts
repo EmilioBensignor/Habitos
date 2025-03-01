@@ -47,9 +47,9 @@ export default defineNuxtConfig({
     }
   },
   site: {
-    url: 'https://goral.com',
-    name: 'Goral',
-    description: 'Goral',
+    url: 'https://habitos.com',
+    name: 'Habitos',
+    description: 'habitos',
     defaultLocale: 'es',
   },
   booster: {
