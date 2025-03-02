@@ -1,40 +1,96 @@
+<!-- pages/habits.vue -->
 <template>
-    <main>
-        <section v-if="user">
-            <h1>Hiciste tus habitos?</h1>
-            <p>Email: {{ user.email }}</p>
-            <p>Leer 1 pagina</p>
-            <p>Ver 1 clase</p>
-            <p>Escribir 1 commit</p>
-            <p>Ejercicios de kinesio</p>
-            <p>Salir afuera</p>
-            <p>Producto del pelo</p>
-            <h2>Descripcion:</h2>
-            <ul>
-                <li>Usuario crea habito</li>
-                <li>Usuario pone como realizado el habito</li>
-                <li>Racha por dias completados</li>
-            </ul>
-            <button @click="signOut">Cerrar sesión</button>
-        </section>
-    </main>
+    <div class="habits-page">
+        <h1>Mis Hábitos</h1>
+
+        <div v-if="showForm" class="form-container">
+            <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
+            <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
+        </div>
+
+        <div v-else>
+            <button @click="showCreateForm" class="create-btn">
+                Crear nuevo hábito
+            </button>
+
+            <HabitList @edit="showEditForm" />
+        </div>
+    </div>
 </template>
 
 <script setup>
-definePageMeta({
-    middleware: 'auth'
-})
-const user = useSupabaseUser();
-const client = useSupabaseClient();
-const router = useRouter();
+import { ref } from 'vue'
 
-async function signOut() {
-    try {
-        const { error } = await client.auth.signOut();
-        if (error) throw error;
-        router.push('/login')
-    } catch (error) {
-        console.error(error.message)
+// Configurar estado para mostrar/ocultar formulario
+const showForm = ref(false)
+const currentHabit = ref({
+    name: '',
+    description: '',
+    frequency: 'daily'
+})
+
+// Mostrar formulario para crear nuevo hábito
+const showCreateForm = () => {
+    currentHabit.value = {
+        name: '',
+        description: '',
+        frequency: 'daily'
     }
+    showForm.value = true
+}
+
+// Mostrar formulario para editar hábito existente
+const showEditForm = (habit) => {
+    currentHabit.value = { ...habit }
+    showForm.value = true
+}
+
+// Manejar guardar hábito
+const habitSaved = () => {
+    showForm.value = false
+    // Recargar la página para mostrar los cambios
+    window.location.reload()
+}
+
+// Cancelar formulario
+const cancelForm = () => {
+    showForm.value = false
 }
 </script>
+
+<style scoped>
+.habits-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.create-btn {
+    display: block;
+    margin: 20px 0;
+    padding: 12px 24px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-container {
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+</style>
