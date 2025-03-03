@@ -8,10 +8,12 @@
             <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
         </div>
 
-        <div v-else>
+        <div v-else class="columnAlignCenter">
             <button @click="showCreateForm" class="create-btn">
                 Crear nuevo hábito
             </button>
+
+            <NuxtLink to="/track">Seguimiento Diario</NuxtLink>
 
             <HabitList @edit="showEditForm" />
         </div>
@@ -65,11 +67,6 @@ const cancelForm = () => {
     padding: 20px;
 }
 
-h1 {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
 .create-btn {
     display: block;
     margin: 20px 0;
@@ -87,10 +84,5 @@ h1 {
     padding: 24px;
     margin: 20px 0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
 }
 </style>

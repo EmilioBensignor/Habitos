@@ -1,18 +1,15 @@
 <template>
     <header>
-        <p>Header</p>
-        <nav>
-            <NuxtLink to="/">Habitos</NuxtLink>
-            <NuxtLink to="/track">Seguimiento Diario</NuxtLink>
-        </nav>
-        <button @click="signOut">Cerrar sesión</button>
+        <div class="relative">
+            <h1>Habitos</h1>
+            <button @click="signOut" class="signOut allCenter">
+                <Icon name="tabler:power" />
+            </button>
+        </div>
     </header>
 </template>
 
 <script setup>
-definePageMeta({
-    middleware: 'auth'
-})
 const user = useSupabaseUser();
 const client = useSupabaseClient();
 const router = useRouter();
@@ -27,3 +24,20 @@ async function signOut() {
     }
 }
 </script>
+
+<style scoped>
+.signOut {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.signOut span {
+    color: red;
+    font-size: 1.25rem !important;
+}
+</style>

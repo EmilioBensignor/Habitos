@@ -3,6 +3,8 @@
     <div class="habit-tracker">
         <h2>Seguimiento de Hábitos</h2>
 
+        <NuxtLink to="/">Habitos</NuxtLink>
+
         <div v-if="loading" class="loading">
             <p>Cargando hábitos...</p>
         </div>
@@ -68,7 +70,7 @@ const loading = ref(true)
 const completedToday = ref({}) // Mapa de hábitos completados hoy
 
 // Estadísticas
-const showStatsModal = ref(false)
+const showStatsModal = ref(true)
 const currentHabit = ref(null)
 const stats = ref(null)
 const loadingStats = ref(false)

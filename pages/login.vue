@@ -30,6 +30,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: 'auth',
+});
+
 const client = useSupabaseClient();
 const router = useRouter();
 

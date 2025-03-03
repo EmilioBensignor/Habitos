@@ -4,24 +4,13 @@
             <form @submit.prevent="signUp">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        v-model="email" 
-                        required
-                        placeholder="correo@ejemplo.com"
-                    >
+                    <input type="email" id="email" v-model="email" required placeholder="correo@ejemplo.com">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        v-model="password" 
-                        required
-                        placeholder="Ingresa tu contraseña"
-                    >
+                    <input type="password" id="password" v-model="password" required
+                        placeholder="Ingresa tu contraseña">
                 </div>
 
                 <button type="submit" :disabled="!email || !password">
@@ -37,6 +26,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: 'auth',
+});
+
 const client = useSupabaseClient();
 const email = ref('')
 const password = ref('')

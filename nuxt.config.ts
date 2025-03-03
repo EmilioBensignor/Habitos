@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   icon: {
     size: '1rem',
     serverBundle: {
-      collections: ['mingcute', 'circle-flags']
+      collections: ['tabler']
     }
   },
   app: {
