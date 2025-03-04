@@ -1,6 +1,6 @@
 <!-- components/HabitTracker.vue -->
 <template>
-    <div class="habit-tracker">
+    <div class="habit-tracker columnAlignCenter">
         <h2>Seguimiento de Hábitos</h2>
 
         <NuxtLink to="/">Habitos</NuxtLink>
@@ -70,7 +70,7 @@ const loading = ref(true)
 const completedToday = ref({}) // Mapa de hábitos completados hoy
 
 // Estadísticas
-const showStatsModal = ref(true)
+const showStatsModal = ref(false)
 const currentHabit = ref(null)
 const stats = ref(null)
 const loadingStats = ref(false)
