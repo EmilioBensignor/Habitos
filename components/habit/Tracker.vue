@@ -1,8 +1,6 @@
 <!-- components/HabitTracker.vue -->
 <template>
     <div class="habit-tracker columnAlignCenter">
-        <h2>Seguimiento de Hábitos</h2>
-
         <NuxtLink to="/">Habitos</NuxtLink>
 
         <div v-if="loading" class="loading">
