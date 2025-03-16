@@ -173,6 +173,7 @@ h1 {
     border: 1px solid #d1d5db;
     background-color: white;
     font-size: 14px;
+    color: #111827;
 }
 
 .form-container {
