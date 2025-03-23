@@ -217,7 +217,6 @@ const undoCompletion = async () => {
 .tracking-header h4,
 .stats-header h4 {
     margin: 0;
-    color: #4f46e5;
 }
 
 .complete-btn {
