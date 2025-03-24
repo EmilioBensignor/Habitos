@@ -1,6 +1,7 @@
 <template>
     <main class="login-container">
         <section class="login-form">
+            <h1>Registrarte</h1>
             <form @submit.prevent="signUp">
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -68,7 +69,21 @@ async function signUp() {
     max-width: 400px;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form-group {
+    width: 100%;
     margin-bottom: 1rem;
 }
 
@@ -79,9 +94,10 @@ label {
 
 input {
     width: 100%;
-    padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 button {
@@ -92,6 +108,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 button:hover {

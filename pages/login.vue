@@ -9,6 +9,7 @@
                         id="email"
                         v-model="email"
                         type="email"
+                        placeholder="correo@ejemplo.com"
                         required
                     >
                 </div>
@@ -18,6 +19,7 @@
                         id="password"
                         v-model="password"
                         type="password"
+                        placeholder="Ingresa tu contraseña"
                         required
                     >
                 </div>
