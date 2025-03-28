@@ -1,8 +1,8 @@
 <!-- components/HabitCard.vue -->
 <template>
-    <div class="habit-card">
+    <div class="habitCard">
         <!-- Sección de información del hábito -->
-        <div class="habit-info">
+        <div class="habitInfo">
             <h3>{{ habit.name }}</h3>
             <p v-if="habit.description">{{ habit.description }}</p>
             <p class="frequency">Frecuencia: {{ habit.frequency }}</p>
@@ -181,7 +181,7 @@ const undoCompletion = async () => {
 </script>
 
 <style scoped>
-.habit-card {
+.habitCard {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 20px;
@@ -193,7 +193,7 @@ const undoCompletion = async () => {
     background-color: white;
 }
 
-.habit-info h3 {
+.habitInfo h3 {
     margin-top: 0;
     margin-bottom: 8px;
 }
@@ -211,7 +211,7 @@ const undoCompletion = async () => {
 
 .tracking-header,
 .stats-header {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .tracking-header h4,
