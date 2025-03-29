@@ -1,4 +1,3 @@
-<!-- components/HabitCard.vue -->
 <template>
     <div class="habitCard">
         <!-- Sección de información del hábito -->
@@ -9,54 +8,54 @@
         </div>
 
         <!-- Sección de trackeo del hábito -->
-        <div class="habit-tracking">
-            <div class="tracking-header">
+        <div class="habitTracking">
+            <div class="trackingHeader">
                 <h4>Seguimiento diario</h4>
             </div>
-            <button v-if="!isCompletedToday" @click="completeHabit" class="complete-btn">
+            <button v-if="!isCompletedToday" @click="completeHabit" class="completeBtn">
                 Completar
             </button>
-            <div v-else class="completion-actions">
-                <button class="completed-indicator">
+            <div v-else class="completionActions">
+                <button class="completedIndicator">
                     Completado hoy
                 </button>
-                <button @click="undoCompletion" class="undo-btn" title="Deshacer completado">
+                <button @click="undoCompletion" class="undoBtn" title="Deshacer completado">
                     Deshacer
                 </button>
             </div>
         </div>
 
         <!-- Sección de estadísticas del hábito -->
-        <div v-if="stats" class="habit-stats">
-            <div class="stats-header">
+        <div v-if="stats" class="habitStats">
+            <div class="statsHeader">
                 <h4>Estadísticas (últimos 30 días)</h4>
             </div>
-            <div class="stats-container">
-                <div class="stat-box">
-                    <span class="stat-value">{{ stats.completionRate.toFixed(0) }}%</span>
-                    <span class="stat-label">Tasa de completado</span>
+            <div class="statsContainer">
+                <div class="statBox">
+                    <span class="statValue">{{ stats.completionRate.toFixed(0) }}%</span>
+                    <span class="statLabel">Tasa de completado</span>
                 </div>
 
-                <div class="stat-box">
-                    <span class="stat-value">{{ stats.streakCurrent }}</span>
-                    <span class="stat-label">Racha actual</span>
+                <div class="statBox">
+                    <span class="statValue">{{ stats.streakCurrent }}</span>
+                    <span class="statLabel">Racha actual</span>
                 </div>
 
-                <div class="stat-box">
-                    <span class="stat-value">{{ stats.streakLongest }}</span>
-                    <span class="stat-label">Mejor racha</span>
+                <div class="statBox">
+                    <span class="statValue">{{ stats.streakLongest }}</span>
+                    <span class="statLabel">Mejor racha</span>
                 </div>
             </div>
         </div>
 
         <!-- Sección de acciones del hábito -->
-        <div class="habit-actions">
-            <button @click="$emit('edit', habit)" class="edit-btn">Editar</button>
-            <button @click="$emit('delete', habit.id)" class="delete-btn">Eliminar</button>
+        <div class="habitActions">
+            <button @click="$emit('edit', habit)" class="editBtn">Editar</button>
+            <button @click="$emit('delete', habit.id)" class="deleteBtn">Eliminar</button>
         </div>
 
         <!-- Indicador de carga -->
-        <div v-if="loading" class="loading-overlay">
+        <div v-if="loading" class="loadingOverlay">
             <p>Cargando...</p>
         </div>
     </div>
@@ -203,23 +202,23 @@ const undoCompletion = async () => {
     font-size: 0.9em;
 }
 
-.habit-tracking,
-.habit-stats {
+.habitTracking,
+.habitStats {
     border-top: 1px solid #e2e8f0;
     padding-top: 16px;
 }
 
-.tracking-header,
-.stats-header {
+.trackingHeader,
+.statsHeader {
     margin-bottom: 15px;
 }
 
-.tracking-header h4,
-.stats-header h4 {
+.trackingHeader h4,
+.statsHeader h4 {
     margin: 0;
 }
 
-.complete-btn {
+.completeBtn {
     width: 100%;
     padding: 10px;
     background-color: #10b981;
@@ -229,13 +228,13 @@ const undoCompletion = async () => {
     cursor: pointer;
 }
 
-.completion-actions {
+.completionActions {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
-.completed-indicator {
+.completedIndicator {
     flex: 1;
     padding: 10px;
     background-color: #d1fae5;
@@ -245,7 +244,7 @@ const undoCompletion = async () => {
     cursor: default;
 }
 
-.undo-btn {
+.undoBtn {
     padding: 10px;
     background-color: #f87171;
     color: white;
@@ -255,13 +254,13 @@ const undoCompletion = async () => {
     white-space: nowrap;
 }
 
-.stats-container {
+.statsContainer {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
-.stat-box {
+.statBox {
     flex: 1;
     text-align: center;
     padding: 10px;
@@ -269,27 +268,27 @@ const undoCompletion = async () => {
     border-radius: 6px;
 }
 
-.stat-value {
+.statValue {
     display: block;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 4px;
 }
 
-.stat-label {
+.statLabel {
     display: block;
     font-size: 12px;
     color: #666;
 }
 
-.habit-actions {
+.habitActions {
     display: flex;
     gap: 8px;
     margin-top: auto;
 }
 
-.edit-btn,
-.delete-btn {
+.editBtn,
+.deleteBtn {
     flex: 1;
     padding: 8px;
     border: none;
@@ -298,17 +297,17 @@ const undoCompletion = async () => {
     font-size: 14px;
 }
 
-.edit-btn {
+.editBtn {
     background-color: #4f46e5;
     color: white;
 }
 
-.delete-btn {
+.deleteBtn {
     background-color: #ef4444;
     color: white;
 }
 
-.loading-overlay {
+.loadingOverlay {
     position: absolute;
     top: 0;
     left: 0;
