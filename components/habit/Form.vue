@@ -1,17 +1,17 @@
 <!-- components/HabitForm.vue -->
 <template>
     <form @submit.prevent="submitForm">
-        <div class="form-group">
+        <div class="formGroup">
             <label for="name">Nombre del hábito</label>
             <input id="name" v-model="form.name" type="text" required placeholder="Ej: Meditar">
         </div>
 
-        <div class="form-group">
+        <div class="formGroup">
             <label for="description">Descripción (opcional)</label>
             <textarea id="description" v-model="form.description" placeholder="Describe tu hábito"></textarea>
         </div>
 
-        <div class="form-group">
+        <div class="formGroup">
             <label>Frecuencia</label>
             <select v-model="form.frequency" required>
                 <option value="daily">Diario</option>
@@ -101,7 +101,7 @@ form {
     margin: 0 auto;
 }
 
-.form-group {
+.formGroup {
     margin-bottom: 16px;
 }
 
