@@ -1,12 +1,14 @@
-/* General */
-
 :root {
-    --white-color: #FDF9F9;
-    --primary-color: #E2083A;
-    --secondary-color: #9B213A;
-    --terciary-color: #791328;
-    --dark-color: #480311;
-
+    --color-white: #FFFFFF;
+    --color-light: #F3F4F6;
+    --color-gray: #9CA3AF;
+    --color-dark: #1F2937;
+    --color-primary: #4F46E5;
+    --color-primary-dark: #3730A3;
+    --color-accent: #10B981;
+    --color-accent-dark: #047857;
+    --color-danger: #E02424;
+    --color-danger-dark: #B91C1C;
 }
 
 * {
@@ -19,8 +21,8 @@
 }
 
 body {
-    background-color: var(--white-color);
-    color: var(--dark-color);
+    background-color: var(--color-light);
+    color: var(--color-dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -34,7 +36,8 @@ body {
 
 header {
     grid-area: header;
-    box-shadow: 0px 0px 5px 0px var(--dark-color);
+    box-shadow: 0px 0px 5px 0px var(--color-gray);
+    background-color: var(--color-white);
 }
 
 header>div {
@@ -52,6 +55,7 @@ main {
 
 footer {
     grid-area: footer;
+    background-color: var(--color-white);
 }
 
 header>div,
@@ -60,8 +64,6 @@ footer>div>div {
     max-width: 1440px;
     margin: 0 auto;
 }
-
-/* Flex */
 
 .center {
     display: flex;
@@ -114,8 +116,6 @@ footer>div>div {
     justify-content: center;
 }
 
-/* Habitos */
-
 section {
     width: 100%;
 }
@@ -130,18 +130,22 @@ h2,
 h3 {
     text-align: center;
     font-weight: 400;
+    color: var(--color-dark);
 }
 
 h1 {
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 h3 {
     font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 a,
@@ -154,46 +158,323 @@ a,
 p,
 li {
     font-size: 0.75rem;
+    color: var(--color-dark);
 }
 
-p,
 p span {
     font-family: "Urbanist", sans-serif;
 }
 
-/* Buttons */
-
-.primaryButton {
-    background-color: var(--primary-color);
+.primaryButton,
+button.primary,
+button[type="submit"]:not(.secondaryButton),
+.createBtn,
+.editBtn {
+    background-color: var(--color-primary);
     border: none;
     border-radius: 7px;
-    color: var(--white-color);
+    color: var(--color-white);
     font-weight: 400;
     text-decoration: none;
     cursor: pointer;
     padding: 1rem 1.25rem;
+    width: 100%;
 }
 
-.secondaryButton {
-    background-color: var(--white-color);
-    border: 1px solid var(--white-color);
+.secondaryButton,
+button:not(.primary):not(.completeBtn):not(.completedIndicator):not(.undoBtn):not(.editBtn):not(.deleteBtn):not(.createBtn) {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
     border-bottom-width: 3px;
     border-radius: 7px;
-    color: var(--dark-color);
+    color: var(--color-dark);
     text-decoration: none;
     cursor: pointer;
     padding: 1rem 1.25rem;
+    width: 100%;
 }
 
-/* Backgrounds & Typography */
-
-.bgCover {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+button:disabled {
+    background-color: var(--color-gray);
+    cursor: not-allowed;
 }
 
-/* Responsive */
+.loginContainer,
+.authPage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light);
+}
+
+.loginForm,
+.loginBox,
+.authBox {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--color-gray);
+    width: 100%;
+    max-width: 400px;
+}
+
+.authPage form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formContainer {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px -1px var(--color-gray);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.formGroup {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-gray);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.formGroup textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.loadingContainer,
+.emptyState {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--color-gray);
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-white);
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.errorMessage {
+    color: var(--color-danger);
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.successMessage {
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.habitsPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.actionsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.createBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    width: auto;
+}
+
+.filterSelect {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--color-gray);
+    background-color: var(--color-white);
+    font-size: 14px;
+    color: var(--color-dark);
+}
+
+.habitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.habitCard {
+    border: 1px solid var(--color-gray);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px var(--color-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    background-color: var(--color-white);
+}
+
+.habitInfo h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.frequency {
+    color: var(--color-gray);
+    font-size: 0.9em;
+}
+
+.habitTracking,
+.habitStats {
+    border-top: 1px solid var(--color-gray);
+    padding-top: 16px;
+}
+
+.trackingHeader h4,
+.statsHeader h4 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+.completeBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.completionActions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.completedIndicator {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--color-light);
+    color: var(--color-accent);
+    border: none;
+    border-radius: 6px;
+    cursor: default;
+}
+
+.undoBtn {
+    padding: 10px;
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.statsContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.statBox {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-light);
+    border-radius: 6px;
+}
+
+.statValue {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--color-primary);
+}
+
+.statLabel {
+    display: block;
+    font-size: 12px;
+    color: var(--color-gray);
+}
+
+.habitActions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.editBtn,
+.deleteBtn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+}
+
+.deleteBtn {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
 
 @media (width >=700px) {
     header>div {
@@ -249,22 +530,37 @@ p span {
     }
 
     .primaryButton,
-    .secondaryButton {
+    .secondaryButton,
+    button.primary,
+    button:not(.primary) {
         transition: all 0.3s;
     }
 
-    .primaryButton:hover {
-        background-color: var(--dark-color);
+    .primaryButton:hover,
+    button.primary:hover,
+    .createBtn:hover,
+    .editBtn:hover {
+        background-color: var(--color-primary-dark);
     }
 
-    .secondaryButton:hover {
-        border-color: var(--primary-color);
+    .secondaryButton:hover,
+    button:not(.primary):not(.completeBtn):not(.completedIndicator):not(.undoBtn):not(.editBtn):not(.deleteBtn):not(.createBtn):hover {
+        border-color: var(--color-primary);
         border-bottom-width: 1px;
-        color: var(--primary-color);
+        color: var(--color-primary);
     }
 
     .secondaryButton.active {
         border-bottom-width: 3px;
+    }
+
+    .completeBtn:hover {
+        background-color: var(--color-accent-dark);
+    }
+
+    .undoBtn:hover,
+    .deleteBtn:hover {
+        background-color: var(--color-danger-dark);
     }
 }
 

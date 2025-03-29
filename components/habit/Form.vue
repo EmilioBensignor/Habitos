@@ -20,9 +20,9 @@
             </select>
         </div>
 
-        <div class="actions">
-            <button type="button" @click="$emit('cancel')">Cancelar</button>
-            <button type="submit" class="primary">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
+        <div class="formActions">
+            <button type="button" class="secondaryButton" @click="$emit('cancel')">Cancelar</button>
+            <button type="submit" class="primaryButton">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
         </div>
     </form>
 </template>
@@ -94,54 +94,3 @@ const submitForm = async () => {
     }
 }
 </script>
-
-<style scoped>
-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.formGroup {
-    margin-bottom: 16px;
-}
-
-label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: 500;
-}
-
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-}
-
-textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 16px;
-    border-radius: 6px;
-    background-color: #e5e7eb;
-    border: none;
-    cursor: pointer;
-}
-
-button.primary {
-    background-color: #4f46e5;
-    color: white;
-}
-</style>

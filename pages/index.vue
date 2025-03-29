@@ -1,20 +1,20 @@
 <!-- pages/index.vue -->
 <template>
-    <div class="habits-page">
+    <div class="habitsPage">
         <h1>Mis Hábitos</h1>
 
-        <div v-if="showForm" class="form-container">
+        <div v-if="showForm" class="formContainer">
             <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
             <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
         </div>
 
-        <div v-else class="habits-container">
-            <div class="actions-header">
-                <button @click="showCreateForm" class="create-btn">
+        <div v-else class="habitsContainer">
+            <div class="actionsHeader">
+                <button @click="showCreateForm" class="createBtn">
                     <span class="icon">+</span> Crear nuevo hábito
                 </button>
                 <div class="filters">
-                    <select v-model="filterOption" class="filter-select">
+                    <select v-model="filterOption" class="filterSelect">
                         <option value="all">Todos los hábitos</option>
                         <option value="pending">Pendientes hoy</option>
                         <option value="completed">Completados hoy</option>
@@ -22,16 +22,16 @@
                 </div>
             </div>
 
-            <div v-if="loading" class="loading">
+            <div v-if="loading" class="loadingContainer">
                 <p>Cargando hábitos...</p>
             </div>
 
-            <div v-else-if="filteredHabits.length === 0" class="empty-state">
+            <div v-else-if="filteredHabits.length === 0" class="emptyState">
                 <p v-if="habits.length === 0">No tienes hábitos creados. ¡Comienza creando uno nuevo!</p>
                 <p v-else>No hay hábitos que coincidan con el filtro seleccionado.</p>
             </div>
 
-            <div v-else class="habits-grid">
+            <div v-else class="habitsGrid">
                 <HabitCard v-for="habit in filteredHabits" :key="habit.id" :habit="habit" @edit="showEditForm"
                     @delete="deleteHabitItem" @refresh="refreshHabits" />
             </div>
@@ -129,71 +129,3 @@ const deleteHabitItem = async (id) => {
     }
 }
 </script>
-
-<style scoped>
-.habits-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    margin-bottom: 24px;
-    color: #111827;
-}
-
-.actions-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.create-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    background-color: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-.icon {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.filter-select {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #d1d5db;
-    background-color: white;
-    font-size: 14px;
-    color: #111827;
-}
-
-.form-container {
-    background-color: #f8fafc;
-    border-radius: 12px;
-    padding: 24px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.habits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
-}
-
-.loading,
-.empty-state {
-    text-align: center;
-    margin-top: 40px;
-    color: #4b5563;
-}
-</style>
