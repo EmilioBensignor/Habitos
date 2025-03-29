@@ -1,42 +1,43 @@
-<!-- pages/index.vue -->
 <template>
-    <div class="habitsPage">
-        <h1>Mis Hábitos</h1>
+    <section class="habitsPage">
+        <div class="columnAlignCenter">
+            <h1>Mis Hábitos</h1>
 
-        <div v-if="showForm" class="formContainer">
-            <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
-            <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
-        </div>
+            <div v-if="showForm" class="formContainer">
+                <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
+                <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
+            </div>
 
-        <div v-else class="habitsContainer">
-            <div class="actionsHeader">
-                <button @click="showCreateForm" class="createBtn">
-                    <span class="icon">+</span> Crear nuevo hábito
-                </button>
-                <div class="filters">
-                    <select v-model="filterOption" class="filterSelect">
-                        <option value="all">Todos los hábitos</option>
-                        <option value="pending">Pendientes hoy</option>
-                        <option value="completed">Completados hoy</option>
-                    </select>
+            <div v-else class="habitsContainer column">
+                <div class="actionsHeader center">
+                    <button @click="showCreateForm" class="createBtn">
+                        <span class="icon">+</span> Crear nuevo hábito
+                    </button>
+                    <div class="filters">
+                        <select v-model="filterOption" class="filterSelect">
+                            <option value="all">Todos los hábitos</option>
+                            <option value="pending">Pendientes hoy</option>
+                            <option value="completed">Completados hoy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div v-if="loading" class="loadingContainer">
+                    <p>Cargando hábitos...</p>
+                </div>
+
+                <div v-else-if="filteredHabits.length === 0" class="emptyState">
+                    <p v-if="habits.length === 0">No tienes hábitos creados. ¡Comienza creando uno nuevo!</p>
+                    <p v-else>No hay hábitos que coincidan con el filtro seleccionado.</p>
+                </div>
+
+                <div v-else class="habitsContainer columnAlignCenter">
+                    <HabitCard v-for="habit in filteredHabits" :key="habit.id" :habit="habit" @edit="showEditForm"
+                        @delete="deleteHabitItem" @refresh="refreshHabits" />
                 </div>
             </div>
-
-            <div v-if="loading" class="loadingContainer">
-                <p>Cargando hábitos...</p>
-            </div>
-
-            <div v-else-if="filteredHabits.length === 0" class="emptyState">
-                <p v-if="habits.length === 0">No tienes hábitos creados. ¡Comienza creando uno nuevo!</p>
-                <p v-else>No hay hábitos que coincidan con el filtro seleccionado.</p>
-            </div>
-
-            <div v-else class="habitsGrid">
-                <HabitCard v-for="habit in filteredHabits" :key="habit.id" :habit="habit" @edit="showEditForm"
-                    @delete="deleteHabitItem" @refresh="refreshHabits" />
-            </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>
@@ -129,3 +130,13 @@ const deleteHabitItem = async (id) => {
     }
 }
 </script>
+
+<style scoped>
+.habitsContainer {
+    gap: 2rem;
+}
+
+.actionsHeader {
+    gap: 2rem;
+}
+</style>

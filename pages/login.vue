@@ -13,7 +13,7 @@
                         required>
                 </div>
                 <p v-if="errorMsg" class="errorMessage">{{ errorMsg }}</p>
-                <button type="submit" class="primaryButton">Ingresar</button>
+                <button type="submit" class="primaryButton mt-3">Ingresar</button>
                 <NuxtLink to="/register" class="secondaryButton no-underline">Registrarte</NuxtLink>
             </form>
         </section>

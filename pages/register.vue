@@ -14,7 +14,7 @@
                         placeholder="Ingresa tu contraseña">
                 </div>
 
-                <button type="submit" class="primaryButton" :disabled="!email || !password">
+                <button type="submit" class="primaryButton mt-3" :disabled="!email || !password">
                     Registrarse
                 </button>
                 <NuxtLink to="/login" class="secondaryButton no-underline">Iniciar sesión</NuxtLink>

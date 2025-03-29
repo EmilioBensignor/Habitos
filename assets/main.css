@@ -217,12 +217,15 @@ button.primary:hover,
 .loginForm,
 .loginBox,
 .authBox {
-    background: var(--color-white);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
 }
 
 .authPage form {
@@ -233,15 +236,28 @@ button.primary:hover,
 }
 
 .formContainer {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     background-color: var(--color-white);
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 4px 6px -1px var(--color-gray);
-    max-width: 500px;
+}
+
+.formContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .formGroup {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .formGroup label {
@@ -264,7 +280,7 @@ button.primary:hover,
 
 .formGroup textarea {
     min-height: 100px;
-    resize: vertical;
+    resize: none;
 }
 
 .formGroup input:focus,
@@ -277,7 +293,8 @@ button.primary:hover,
 .formActions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .loadingContainer,
@@ -310,12 +327,6 @@ button.primary:hover,
     font-size: 0.875rem;
 }
 
-.actionsHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .createBtn {
     display: flex;
     align-items: center;
@@ -338,12 +349,6 @@ button.primary:hover,
     background-repeat: no-repeat;
     background-position: calc(100% - 12px) center;
     padding-right: 32px;
-}
-
-.habitsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 24px;
 }
 
 .habitCard {
