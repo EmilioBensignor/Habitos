@@ -1,14 +1,14 @@
 <template>
-    <div class="habitCard">
+    <div class="habitCard column">
         <!-- Sección de información del hábito -->
-        <div class="habitInfo">
-            <h3>{{ habit.name }}</h3>
+        <div class="habitInfo column">
+            <h3 class="text-left">{{ habit.name }}</h3>
             <p v-if="habit.description">{{ habit.description }}</p>
             <p class="frequency">Frecuencia: {{ habit.frequency }}</p>
         </div>
 
         <!-- Sección de trackeo del hábito -->
-        <div class="habitTracking">
+        <div class="habitTracking column">
             <div class="trackingHeader">
                 <h4>Seguimiento diario</h4>
             </div>
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Sección de estadísticas del hábito -->
-        <div v-if="stats" class="habitStats">
+        <div v-if="stats" class="habitStats column">
             <div class="statsHeader">
                 <h4>Estadísticas (últimos 30 días)</h4>
             </div>
