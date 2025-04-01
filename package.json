@@ -12,20 +12,22 @@
   },
   "dependencies": {
     "@nuxt/fonts": "^0.10.3",
-    "@nuxt/icon": "^1.10.3",
-    "@nuxt/image": "^1.9.0",
+    "@nuxt/icon": "^1.10.1",
+    "@nuxt/image": "^1.8.1",
     "@nuxt/scripts": "^0.9.5",
     "@nuxtjs/fontaine": "^0.4.4",
-    "@nuxtjs/seo": "^2.1.1",
+    "@nuxtjs/seo": "^2.2.0",
     "@nuxtjs/supabase": "^1.4.6",
-    "@primevue/nuxt-module": "^4.2.5",
-    "nuxt": "^3.15.4",
-    "nuxt-booster": "^3.1.10",
+    "@primevue/nuxt-module": "^4.2.4",
+    "nuxt": "^3.10.0",
+    "nuxt-booster": "^3.1.6",
+    "nuxt-og-image": "^5.1.1",
     "nuxt-vitalizer": "^0.10.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@iconify-json/tabler": "^1.2.16"
+    "@iconify-json/tabler": "^1.2.16",
+    "unenv": "^1.10.0"
   }
 }

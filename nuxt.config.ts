@@ -25,6 +25,11 @@ export default defineNuxtConfig({
       ]
     }
   },
+  primevue: {
+    components: {
+      include: []
+    }
+  },
   fonts: {
     defaults: {
       weights: [400, 500, 700, 900],

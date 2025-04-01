@@ -2,7 +2,7 @@
     <section class="habitsPage">
         <div class="columnAlignCenter">
             <h1>Mis Hábitos</h1>
-
+            // Poder ver un dia anterior
             <div v-if="showForm" class="formContainer">
                 <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
                 <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
