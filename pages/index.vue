@@ -3,6 +3,7 @@
         <div class="columnAlignCenter">
             <h1>Mis Hábitos</h1>
             // Poder ver un dia anterior
+            // Pensar sables de luz
             <div v-if="showForm" class="formContainer">
                 <h2>{{ currentHabit.id ? 'Editar' : 'Crear nuevo' }} hábito</h2>
                 <HabitForm :habit="currentHabit" @saved="habitSaved" @cancel="cancelForm" />
