@@ -1,6 +1,7 @@
 <!-- components/HabitForm.vue -->
 <template>
     <form @submit.prevent="submitForm">
+        // Asignar experiencia a cada habito
         <div class="formGroup">
             <label for="name">Nombre del hábito</label>
             <input id="name" v-model="form.name" type="text" required placeholder="Ej: Meditar">
